@@ -1,5 +1,9 @@
 import logo from '../assets/logo.svg';
-import downArrow from '../assets/icon-arrow-down.svg';
+import Dropdown from './Dropdown.tsx';
+import todo from '../assets/icon-todo.svg';
+import calendar from '../assets/icon-calendar.svg';
+import reminders from '../assets/icon-reminders.svg';
+import planning from '../assets/icon-planning.svg';
 
 function Navbar() {
   return (
@@ -11,25 +15,24 @@ function Navbar() {
       />
       <div className='w-full flex justify-between'>
         <ul className='flex gap-8 items-center'>
-          <li>
-            Features
-            <img
-              src={downArrow}
-              className='inline ml-2'
-            ></img>
-          </li>
-          <li>
-            Company
-            <img
-              src={downArrow}
-              className='inline ml-2'
-            ></img>
-          </li>
-          <li>Careers</li>
-          <li>About</li>
+          <Dropdown
+            header='Features'
+            list={[
+              { icon: todo, item: 'Todo List' },
+              { icon: calendar, item: 'Calendar' },
+              { icon: reminders, item: 'Reminders' },
+              { icon: planning, item: 'Planning' },
+            ]}
+          />
+          <Dropdown
+            header='Company'
+            list={[{ item: 'History' }, { item: 'Our team' }, { item: 'Blog' }]}
+          />
+          <li className='hover:font-b'>Careers</li>
+          <li className='hover:font-b'>About</li>
         </ul>
         <ul className='flex gap-8 items-center'>
-          <li>Login</li>
+          <li className='hover:font-b'>Login</li>
           <li>
             <button className='px-4 py-2 border-2 border-black rounded-xl'>Register</button>
           </li>
