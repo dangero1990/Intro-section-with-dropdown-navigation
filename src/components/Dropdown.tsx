@@ -19,7 +19,7 @@ function Dropdown({ header, list }: DropdownType) {
       className='relative'
       onClick={() => setClicked(!clicked)}
     >
-      <span className='hover:font-b'>{header}</span>
+      <a className='cursor-pointer hover:font-b'>{header}</a>
       <img
         src={clicked ? upArrow : downArrow}
         className='inline ml-2'
@@ -28,7 +28,7 @@ function Dropdown({ header, list }: DropdownType) {
         {list.map((item: ItemType, index: number) => (
           <li
             key={index}
-            className='p-2 hover:font-b'
+            className='p-2 cursor-pointer hover:font-b'
           >
             {item.icon && (
               <img
@@ -37,7 +37,7 @@ function Dropdown({ header, list }: DropdownType) {
                 className='inline mr-4'
               />
             )}
-            {item.item}
+            <a href=''>{item.item}</a>
           </li>
         ))}
       </ul>
