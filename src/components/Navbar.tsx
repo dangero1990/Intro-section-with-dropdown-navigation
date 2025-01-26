@@ -9,20 +9,15 @@ import closeMenu from '../assets/icon-close-menu.svg';
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
-function Navbar() {
+type NavbarType = {
+  windowSize: number;
+};
+
+function Navbar({ windowSize }: NavbarType) {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
     windowSize <= 768 ? setMenuOpen(false) : setMenuOpen(true);
-
-    window.addEventListener('resize', checkScreenSize);
-
-    return () => window.removeEventListener('resize', checkScreenSize);
   }, [windowSize]);
 
   return (
