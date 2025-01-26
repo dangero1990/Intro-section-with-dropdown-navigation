@@ -39,13 +39,18 @@ function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
         />
       </button>
+      <div className={menuOpen && windowSize <= 768 ? 'bg-AlmostBlack w-screen h-screen top-0 left-0 absolute opacity-50' : 'hidden'}></div>
       <div
-        className={clsx('w-full md:flex md:justify-between', {
-          '': menuOpen,
+        className={clsx('md:w-full md:flex md:justify-between', {
+          'absolute flex-col z-3 bg-white w-1/2 h-screen top-0 right-0 p-4': windowSize <= 768,
           hidden: !menuOpen,
         })}
       >
-        <ul className='flex gap-8 items-center'>
+        <ul
+          className={clsx('flex gap-8 md:items-center', {
+            'flex-col mt-24 p-4': windowSize <= 768,
+          })}
+        >
           <Dropdown
             header='Features'
             list={[
@@ -66,12 +71,16 @@ function Navbar() {
             <a href=''>About</a>
           </li>
         </ul>
-        <ul className='flex gap-8 items-center'>
+        <ul
+          className={clsx('flex md:gap-8 items-center', {
+            'flex-col gap-4 p-2': windowSize <= 768,
+          })}
+        >
           <li className='cursor-pointer hover:font-b'>
             <a href=''>Login</a>
           </li>
-          <li>
-            <button className='px-4 py-2 border-2 border-black rounded-xl'>Register</button>
+          <li className='w-full'>
+            <button className='px-4 py-2 border-2 border-black rounded-xl w-full'>Register</button>
           </li>
         </ul>
       </div>
