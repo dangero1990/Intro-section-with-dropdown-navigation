@@ -34,7 +34,7 @@ function Main({ windowSize }: MainType) {
   return (
     <main
       className={clsx('w-[80%] m-auto grid', {
-        'grid-rows-2': windowSize <= 768,
+        'grid-rows-[min-content,1fr]': windowSize <= 768,
         'grid-cols-2': windowSize > 768,
       })}
     >
@@ -46,7 +46,7 @@ function Main({ windowSize }: MainType) {
       <div
         className={clsx('grid grid-rows-[2fr,1fr,1fr,1fr]', {
           'place-items-start pr-32': windowSize > 768,
-          'place-items-center text-center': windowSize <= 768,
+          'place-items-center text-center mt-8': windowSize <= 768,
         })}
       >
         <h1 className='font-b text-6xl mr-auto place-self-end'>Make remote work</h1>
